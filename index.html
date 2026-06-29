@@ -870,23 +870,25 @@
           </div>
         </div>
         <div class="reveal">
-          <form class="contact-form" onsubmit="handleFormSubmit(event)">
-            <div class="form-group">
-              <label class="form-label">Your Name</label>
-              <input type="text" class="form-input" placeholder="Jane Smith" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" placeholder="jane@company.com" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-textarea" placeholder="Tell me about the opportunity or what you'd like to discuss..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: fit-content;">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="c78e683e-ea26-4824-8905-4725c60b93e4">
+  <input type="hidden" name="subject" value="New Portfolio Contact Message">
+  <div class="form-group">
+    <label class="form-label">Your Name</label>
+    <input type="text" name="name" class="form-input" placeholder="Jane Smith" required />
+  </div>
+  <div class="form-group">
+    <label class="form-label">Email Address</label>
+    <input type="email" name="email" class="form-input" placeholder="jane@company.com" required />
+  </div>
+  <div class="form-group">
+    <label class="form-label">Message</label>
+    <textarea name="message" class="form-textarea" placeholder="Tell me about the opportunity or what you'd like to discuss..." required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" style="width: fit-content;">
+    <i class="fas fa-paper-plane"></i> Send Message
+  </button>
+</form>
         </div>
       </div>
     </div>
@@ -966,17 +968,6 @@
       });
     });
 
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type=submit]');
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
-    }
 
     
   </script>
